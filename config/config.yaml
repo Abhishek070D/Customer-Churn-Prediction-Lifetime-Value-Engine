@@ -1,0 +1,41 @@
+# Configuration file for Customer Churn Prediction & Lifetime Value Engine
+
+# Data Configuration
+data:
+  raw_data_path: "data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv"
+  processed_data_path: "data/processed/"
+  test_size: 0.2
+  random_state: 42
+
+# Model Configuration
+model:
+  churn_model_path: "models/churn_model.pkl"
+  ltv_model_path: "models/ltv_model.pkl"
+  model_type: "ensemble"
+  cross_validation_folds: 5
+
+# Feature Engineering
+features:
+  categorical_features:
+    - gender
+    - InternetService
+    - OnlineSecurity
+    - TechSupport
+  numerical_features:
+    - age
+    - tenure
+    - MonthlyCharges
+    - TotalCharges
+  target_column: "Churn"
+
+# Training Configuration
+training:
+  epochs: 100
+  batch_size: 32
+  learning_rate: 0.001
+  validation_split: 0.2
+
+# Logging
+logging:
+  level: "INFO"
+  log_file: "logs/training.log"
